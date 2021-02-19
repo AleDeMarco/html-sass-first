@@ -1,0 +1,74 @@
+
+$main-text-color: #000;
+$nav-text-color: rgba(255, 0, 0, 0.7);
+$line-h-head-foot: 100px;
+$line-h-resp: calc(100vh - 200px);
+@mixin header-footer {
+  background-color: rgba(255, 0, 0, 0.7);
+  height: 100px;
+  width: 100%;
+}
+@mixin nav {
+  background-color: lightblue;
+  height: calc(100vh - 200px);
+  width: 20%;
+  float: left;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1{
+  color: $main-text-color;
+  text-align: center;
+}
+
+header{
+  @include header-footer;
+}
+
+main::after{
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.nav.left{
+  @include nav;
+  h1{
+    color: $nav-text-color;
+  }
+}
+
+.main-box{
+  background-color: orange;
+  height: calc(100vh - 200px);
+  width: 60%;
+  float: left;
+}
+
+.nav.right{
+  @include nav;
+  h1{
+    color: $nav-text-color;
+  }
+}
+
+footer{
+  @include header-footer;
+}
+
+header, footer{
+  h1{
+    line-height: $line-h-head-foot;
+  }
+}
+
+.nav, .main-box{
+  h1{
+    line-height: $line-h-resp;
+  }
+}
